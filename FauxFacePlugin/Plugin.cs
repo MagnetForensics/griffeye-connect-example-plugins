@@ -7,7 +7,7 @@ namespace FauxFace
     {
         private readonly UserActionClient _userActionClient;
 
-        readonly string BASE64_ICON_PNG =
+        private readonly string BASE64_ICON_PNG =
             "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAAAAAClZ7nPAAAAAXRSTlMAQObYZgAA" +
             "ACNJREFUCNdjYCAM+P/b/4EQfAwWDLgJ/n/2PyAEfnVoBF4AALCjDTXMe2y+AAAAAElFTkSuQmCC";
 
@@ -15,9 +15,9 @@ namespace FauxFace
         {
             this._userActionClient = userActionClient;
         }
+
         public async Task Initialize()
         {
-
             const string ActionNamePrefix = "FauxFacePlugin ";
             foreach (var userAction in await _userActionClient.GetAllUserActionsAsync())
             {
@@ -35,7 +35,7 @@ namespace FauxFace
                     Base64Image = BASE64_ICON_PNG,
                     Scope = UserActionPostScope.Entity,
                     Path = new string[] { "FauxFace", "Enqueue file(s) for identification" },
-                    Url = "http://localhost:8780/plugin1/api/fauxface"
+                    Url = "https://localhost:17000/plugin1/api/fauxface"
                 });
 
             await _userActionClient.AddUserActionAsync(
@@ -46,9 +46,8 @@ namespace FauxFace
                     Base64Image = BASE64_ICON_PNG,
                     Scope = UserActionPostScope.Global,
                     Path = new string[] { "HOME", "FauxFace", "View Results" },
-                    Url = "http://localhost:8780/plugin1/api/fauxface"
+                    Url = "https://localhost:17000/plugin1/api/fauxface"
                 });
-
         }
     }
 }

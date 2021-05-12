@@ -17,7 +17,7 @@ namespace Griffeye
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.3.0 (NJsonSchema v10.1.5.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class FileClient 
     {
-        private string _baseUrl = "http://localhost:8780";
+        private string _baseUrl = "https://localhost:17000";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -232,7 +232,7 @@ namespace Griffeye
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.3.0 (NJsonSchema v10.1.5.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class FileBookmarkClient 
     {
-        private string _baseUrl = "http://localhost:8780";
+        private string _baseUrl = "https://localhost:17000";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -707,7 +707,7 @@ namespace Griffeye
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.3.0 (NJsonSchema v10.1.5.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class FileMetadataClient 
     {
-        private string _baseUrl = "http://localhost:8780";
+        private string _baseUrl = "https://localhost:17000";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -1258,7 +1258,7 @@ namespace Griffeye
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.3.0 (NJsonSchema v10.1.5.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class UserActionClient 
     {
-        private string _baseUrl = "http://localhost:8780";
+        private string _baseUrl = "https://localhost:17000";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -1785,7 +1785,7 @@ namespace Griffeye
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.3.0 (NJsonSchema v10.1.5.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class Client 
     {
-        private string _baseUrl = "http://localhost:8780";
+        private string _baseUrl = "https://localhost:17000";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     

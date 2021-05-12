@@ -30,7 +30,7 @@ namespace ConnectDebugPlugin
                     ActionType = UserActionPostActionType.WebView,
                     Scope = UserActionPostScope.Global,
                     Path = new List<string> { "HOME", "Dashboard Home Tab", "Action" },
-                    Url = "http://localhost:8780/plugin2/debug/dashboardhome"
+                    Url = "https://localhost:17000/plugin2/debug/dashboardhome"
                 });
 
             await userActionClient.AddUserActionAsync(
@@ -40,7 +40,7 @@ namespace ConnectDebugPlugin
                     ActionType = UserActionPostActionType.WebView,
                     Scope = UserActionPostScope.Global,
                     Path = new List<string> { "Dashboard Tab", "Dashboard new Tab", "Action" },
-                    Url = "http://localhost:8780/plugin2/debug/dashboardnew"
+                    Url = "https://localhost:17000/plugin2/debug/dashboardnew"
                 });
 
             await userActionClient.AddUserActionAsync(
@@ -50,7 +50,7 @@ namespace ConnectDebugPlugin
                     ActionType = UserActionPostActionType.WebView,
                     Scope = UserActionPostScope.Workspace,
                     Path = new List<string> { "VIEW", "Information", "Action" },
-                    Url = "http://localhost:8780/plugin2/debug/workspaceview"
+                    Url = "https://localhost:17000/plugin2/debug/workspaceview"
                 });
 
             await userActionClient.AddUserActionAsync(
@@ -60,7 +60,7 @@ namespace ConnectDebugPlugin
                     ActionType = UserActionPostActionType.WebView,
                     Scope = UserActionPostScope.Workspace,
                     Path = new List<string> { "Workspace Tab", "Workspace new Tab", "Action" },
-                    Url = "http://localhost:8780/plugin2/debug/workspacenew"
+                    Url = "https://localhost:17000/plugin2/debug/workspacenew"
                 });
 
             await userActionClient.AddUserActionAsync(
@@ -70,7 +70,7 @@ namespace ConnectDebugPlugin
                     ActionType = UserActionPostActionType.WebView,
                     Scope = UserActionPostScope.File,
                     Path = new List<string> { "Debug Plugin", "File Context Menu", "Action" },
-                    Url = "http://localhost:8780/plugin2/debug/filemenu"
+                    Url = "https://localhost:17000/plugin2/debug/filemenu"
                 });
 
             await userActionClient.AddUserActionAsync(
@@ -80,7 +80,7 @@ namespace ConnectDebugPlugin
                     ActionType = UserActionPostActionType.WebView,
                     Scope = UserActionPostScope.File,
                     Path = new List<string> { "Debug Plugin", "File Context Menu", "Sub Menu", "Action" },
-                    Url = "http://localhost:8780/plugin2/debug/filesubmenu"
+                    Url = "https://localhost:17000/plugin2/debug/filesubmenu"
                 });
 
             await userActionClient.AddUserActionAsync(
@@ -89,8 +89,8 @@ namespace ConnectDebugPlugin
                     ActionName = $"{ActionNamePrefix}Entity Context Menu",
                     ActionType = UserActionPostActionType.WebView,
                     Scope = UserActionPostScope.Entity,
-                    Path = new List<string> {"Debug Plugin", "Entity Context Menu", "Action"},
-                    Url = "http://localhost:8780/plugin2/debug/entitymenu"
+                    Path = new List<string> { "Debug Plugin", "Entity Context Menu", "Action" },
+                    Url = "https://localhost:17000/plugin2/debug/entitymenu"
                 });
 
             await userActionClient.AddUserActionAsync(
@@ -99,8 +99,8 @@ namespace ConnectDebugPlugin
                     ActionName = $"{ActionNamePrefix}Entity File Context Menu",
                     ActionType = UserActionPostActionType.WebView,
                     Scope = UserActionPostScope.EntityFile,
-                    Path = new List<string> {"Debug Plugin", "Entity File Context Menu", "Action"},
-                    Url = "http://localhost:8780/plugin2/debug/entityfilemenu"
+                    Path = new List<string> { "Debug Plugin", "Entity File Context Menu", "Action" },
+                    Url = "https://localhost:17000/plugin2/debug/entityfilemenu"
                 });
         }
     }

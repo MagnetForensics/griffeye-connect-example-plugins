@@ -1,4 +1,6 @@
 ﻿using FauxFace.Db;
+using FauxFacePlugin;
+using Griffeye;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -9,9 +11,6 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using FauxFacePlugin;
-using Griffeye;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace FauxFace
 {
@@ -39,19 +38,24 @@ namespace FauxFace
             }
 
             services.AddTransient<ConnectMessageHandler>();
-            services.AddHttpClient<Client>(ConfigureHttpClient);
+            services.AddHttpClient<Client>(ConfigureHttpClient)
+                .ConfigurePrimaryHttpMessageHandler(ConfigureHttpMessageHandler());
             services
                 .AddHttpClient<UserActionClient>(ConfigureHttpClient)
-                .AddHttpMessageHandler<ConnectMessageHandler>();
+                .AddHttpMessageHandler<ConnectMessageHandler>()
+                .ConfigurePrimaryHttpMessageHandler(ConfigureHttpMessageHandler());
             services
                 .AddHttpClient<FileClient>(ConfigureHttpClient)
-                .AddHttpMessageHandler<ConnectMessageHandler>();
+                .AddHttpMessageHandler<ConnectMessageHandler>()
+                .ConfigurePrimaryHttpMessageHandler(ConfigureHttpMessageHandler());
             services
                 .AddHttpClient<FileBookmarkClient>(ConfigureHttpClient)
-                .AddHttpMessageHandler<ConnectMessageHandler>();
+                .AddHttpMessageHandler<ConnectMessageHandler>()
+                .ConfigurePrimaryHttpMessageHandler(ConfigureHttpMessageHandler());
             services
                 .AddHttpClient<FileMetadataClient>(ConfigureHttpClient)
-                .AddHttpMessageHandler<ConnectMessageHandler>();
+                .AddHttpMessageHandler<ConnectMessageHandler>()
+                .ConfigurePrimaryHttpMessageHandler(ConfigureHttpMessageHandler());
 
             services.AddSingleton<IFauxFaceDb, FauxFaceDb>();
             services.AddHttpContextAccessor();
@@ -61,6 +65,20 @@ namespace FauxFace
                 o.EnableEndpointRouting = false;
             }
             ).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            // Allow self-signed certificates
+            static Func<HttpMessageHandler> ConfigureHttpMessageHandler()
+            {
+                return () =>
+                {
+                    var handler = new HttpClientHandler
+                    {
+                        ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; }
+                    };
+
+                    return handler;
+                };
+            }
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
